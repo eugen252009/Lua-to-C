@@ -1,8 +1,8 @@
 FLAGS = -O3
-start: build
-	@echo 124 | ./build/compiler ./lua.lua
+# start: build
+# 	./build/compiler
 build:
-	mkdir build
+	mkdir -p build
 	gcc $(FLAGS) -o ./build/compiler ./src/compiler.c
 clean:
 	rm -rf build
