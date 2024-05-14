@@ -48,8 +48,8 @@ class Text {
 						tmp += this.current()
 					}
 					while (this.next() !== `"`)
-					this.Tokens.push(tmp + this.current())
-					// this.next()
+					tmp += this.current()
+					this.Tokens.push(tmp)
 					this.currentToken = tmp
 					tmp = ""
 					return this.currentToken
@@ -83,18 +83,9 @@ parse(parser);
 function parse(t) {
 
 	while (t.nextToken()) {
-		if (t.pointer > 45) {
-			log(1, t)
-		}
 		log(1, `Token: ${t.currentToken}`)
 	}
 }
-// function isWhitespace(char) {
-// 	if (char === " " || char === "\t" || char === "\n") {
-// 		return true;
-// 	}
-// 	return false;
-// }
 function isLetter(char) {
 	if (char >= 'a' && char >= 'z' || char >= 'A' && char >= 'Z') {
 		return true;
